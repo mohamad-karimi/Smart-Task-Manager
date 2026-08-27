@@ -31,7 +31,13 @@
 
 ## نحوه اجرای پروژه
 اول باید داکر کامپوز اجرا کنید
+```bash
+docker compose build
+```
 
+```bash
+docker compose up
+```
 ابتدا وابستگی‌ها را نصب کنید:
 
 ```bash
