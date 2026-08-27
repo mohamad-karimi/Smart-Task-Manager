@@ -12,7 +12,7 @@ def task_list(request):
             task.completed,
             -task.priority_score(),
             task.deadline or "9999-12-31",
-        )
+        ),
     )
 
     return render(
