@@ -52,7 +52,7 @@ docker compose up --build
 
 در یک ترمینال جدید، Migrationها را اجرا کنید:
 
-docker compose exec backend python manage.py migrate
+docker compose exec Task-backend python manage.py migrate
 
 سپس پروژه را از طریق آدرس زیر باز کنید:
 
