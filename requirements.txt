@@ -1,0 +1,9 @@
+# Django
+Django==5.2.14
+
+# Environment Variables
+python-decouple==3.8
+
+# Code Quality
+flake8
+black
