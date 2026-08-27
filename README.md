@@ -38,22 +38,10 @@ docker compose build
 ```bash
 docker compose up
 ```
-ابتدا وابستگی‌ها را نصب کنید:
-
-```bash
-pip install -r requirements.txt
-```
-
 سپس Migrationها را اجرا کنید:
 
 ```bash
 python manage.py migrate
-```
-
-و در نهایت سرور را اجرا کنید:
-
-```bash
-python manage.py runserver
 ```
 
 سپس در مرورگر آدرس زیر را باز کنید:
