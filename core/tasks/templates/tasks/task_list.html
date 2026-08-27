@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Task Manager</title>
+    <link rel="stylesheet" href="{% static 'tasks/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div>
+            <h1>Smart Task Manager</h1>
+            <p>Organize your tasks and stay productive.</p>
+        </div>
+
+        <a class="btn" href="{% url 'task_create' %}">
+            + Create Task
+        </a>
+    </div>
+
+    <div class="task-list">
+
+        {% for task in tasks %}
+
+        <div class="task {{ task.priority }} {% if task.completed %}completed{% endif %}">
+
+            <div class="task-header">
+
+                <div>
+                    <h3>{{ task.title }}</h3>
+
+                    {% if task.description %}
+                        <p>{{ task.description }}</p>
+                    {% endif %}
+                </div>
+
+                <span class="priority {{ task.priority }}">
+                    {{ task.priority }}
+                </span>
+
+            </div>
+
+            {% if task.deadline %}
+                <p class="deadline">
+                    📅 Deadline: {{ task.deadline }}
+                </p>
+            {% endif %}
+
+            <div class="task-actions">
+
+                <a href="{% url 'task_toggle' task.id %}">
+                    {% if task.completed %}
+                        ↩ Mark as incomplete
+                    {% else %}
+                        ✓ Mark as completed
+                    {% endif %}
+                </a>
+
+                <a class="delete" href="{% url 'task_delete' task.id %}">
+                    🗑 Delete
+                </a>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty">
+            <h3>No tasks yet</h3>
+            <p>Create your first task and start being productive 🚀</p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
