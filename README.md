@@ -30,26 +30,33 @@
 همچنین در مواردی که درباره یک راه‌حل اطمینان نداشتم، آن را با مستندات Django مقایسه و به‌صورت عملی تست کردم.
 
 ## نحوه اجرای پروژه
-اول باید داکر کامپوز اجرا کنید
-```bash
-docker compose build
-```
 
-```bash
-docker compose up
-```
-سپس Migrationها را اجرا کنید:
+### پیش‌نیازها
 
-```bash
-python manage.py migrate
-```
+- Docker
+- Docker Compose
 
-سپس در مرورگر آدرس زیر را باز کنید:
+### اجرای پروژه
 
-```text
+ابتدا Repository را Clone کنید:
+
+git clone https://github.com/mohamad-karimi/Smart-Task-Manager.git
+
+سپس وارد پروژه شوید:
+
+cd Smart-Task-Manager
+
+کانتینرها را Build و اجرا کنید:
+
+docker compose up --build
+
+در یک ترمینال جدید، Migrationها را اجرا کنید:
+
+docker compose exec backend python manage.py migrate
+
+سپس پروژه را از طریق آدرس زیر باز کنید:
+
 http://127.0.0.1:8000/
-```
-
 ## نتیجه
 
 این پروژه یک نمونه ساده از استفاده هدفمند از AI در فرآیند توسعه نرم‌افزار است. هدف اصلی این بود که AI در نقش یک ابزار کمکی برای تحقیق، تولید اولیه، بررسی و رفع خطا استفاده شود و تصمیم‌گیری و اعتبارسنجی نهایی توسط توسعه‌دهنده انجام شود.
